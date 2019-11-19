@@ -1,0 +1,105 @@
+MyScreenManage:
+    cata:
+    VegetablesClass:
+<Button>
+    font_size: 13
+
+<cata>:
+    name: 'home'
+    FloatLayout:
+        canvas.before:
+            Color:
+                rgba: 1,.4,.5,1
+            Rectangle:
+                # self here refers to the widget i.e FloatLayout
+                pos: self.pos
+                size: self.size
+        GridLayout:
+            text: 'jello'
+            rows:1
+            padding: 10
+            spacing: 10
+            pos_hint: {'top':1}
+            size_hint: 1, .1
+
+            canvas:
+                Color:
+                    rgba: .5,1,.9,.8
+                Rectangle:
+                    # self here refers to the widget i.e FloatLayout
+                    id: rec
+                    pos: self.pos
+                    size: self.size
+            Button:
+                text: 'HOME'
+
+                size_hint: (None, None)
+                size: (100, 44)
+            Spinner:
+                text: 'MARKETS \nDAYS'
+                values: 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'
+
+                size_hint: (None, None)
+                size: (100, 44)
+            Spinner:
+                text: "Work"
+                values: "Work", "Home", "Mobile", "Seller"
+                size_hint: (None, None)
+                size: (100, 44)
+            Label:
+                text: ''
+                pos_hint: {'left':1}
+                size_hint: .08, 1
+            Label:
+                text: ''
+                pos_hint: {'left':1}
+                size_hint: .08, 1
+
+
+
+        TextInput:
+            pos_hint: {'x':.8, 'y':.95}
+            text: 'search'
+            size_hint: .2,.045
+            font_size:12
+            multiline: False
+
+
+
+    BoxLayout:
+        size_hint: .8,.8
+        pos_hint: {'center_x':.5, 'center_y':.45}
+        orientation: 'horizontal'
+        size: root.size
+        GridLayout:
+            rows:2
+            spacing: 5
+            Button:
+                text: 'FOOD \nSTUFFS'
+                on_release: app.root.current = 'vegetable'
+            Button:
+                text: 'GRAINS'
+            Button:
+                text: 'FRUITS'
+            Button:
+                text: 'VEGETABLES'
+            Button:
+                text: 'UTENSILS'
+            Button:
+                text: 'SPICES'
+<VegetablesClass>
+    name: 'vegetable'
+    GridLayout:
+        rows: 4
+        Button:
+            text: 'Pumpkin \nLeaf'
+        Button:
+            text:'Spinach'
+        Button:
+            text: 'Cabbage'
+        Button:
+            text: 'Bitter \nLeaf'
+        Button:
+            text: 'Oziza'
+        Button:
+            text: 'Cucumber'

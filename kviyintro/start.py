@@ -1,36 +1,29 @@
 import kivy
-
+from kivy.properties import ListProperty
 from kivy.app import App
 kivy.require("1.10.1")
-from kivy.uix.label import Label
+from kivy.uix.floatlayout import FloatLayout
+
+from kivy.core.window import Window
+from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.gridlayout import GridLayout
-from kivy.uix.textinput import TextInput
 from kivy.uix.widget import Widget
-
-class Widgets(Widget):
+from kivy.graphics import Color,Rectangle
+from kivy.lang import Builder
+from kivy.uix.screenmanager import  ScreenManager, Screen,SlideTransition
+# Window.clearcolor = (1, 1, 1, 1)
+kv  = Builder.load_file('myOptions.kv')
+class cata(Screen):
     pass
-class LogInScreen(GridLayout):
-    def __init__(self, **kwargs):
-        super(LogInScreen, self).__init__(**kwargs)
-        self.cols = 2
-
-        self.add_widget(Label(text = 'USERNAME:'))
-        self.username = TextInput(multiline = False)
-        self.add_widget(self.username)
-
-        self.add_widget(Label(text = 'PASSWORD:'))
-        self.password = TextInput(multiline = False)
-        self.add_widget(self.password)
-
-        
-
-class Simple(App):
+class VegetablesClass(Screen):
+    pass
+class MyScreenManage(ScreenManager):
+    pass
+class myOptions(App):
     def build(self):
-        my_wid = Widget()
-        # with open('myOptions.txt') as f:
-        #     contents = f.read()
-        #     my_wid.text = contents
+        return kv
 
-        return Widgets()
+
+
 if __name__ == "__main__":
-    Simple().run()
+    myOptions().run()
